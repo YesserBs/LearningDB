@@ -3,10 +3,9 @@ import sqlite3
 conn = sqlite3.connect('Base.db')
 c = conn.cursor()
 
-#Insertion de données (1, "Yesser") dans Personne
-c.execute("""INSERT INTO Personne VALUES 
-    (1, "Yesser")
-""")
+#Insertion de plusieurs elements en une seule fois
+Personnes = [(2, "Personne_B"), (3, "Personne_C")]
+c.executemany("INSERT INTO Personne VALUES (?,?)", Personnes)
 
 conn.commit()
 conn.close()
