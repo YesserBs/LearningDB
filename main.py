@@ -3,9 +3,9 @@ import sqlite3
 conn = sqlite3.connect('Base.db')
 c = conn.cursor()
 
-#La rowid est la clé primaire, donc le mecanisme est pret. pas besoin de faire un champ ID comme je l'ai deja fait
-c.execute("SELECT rowid, * FROM personne")
-data = c.fetchone()
+#Selection specifique (ID > 1)
+c.execute("SELECT rowid, * FROM personne WHERE ID > 1")
+data = c.fetchall()
 print(data)
 
 conn.commit()
