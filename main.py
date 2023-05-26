@@ -1,12 +1,13 @@
 import sqlite3
 
-conn = sqlite3.connect('Base.db') #Crée Base.db si elle n'existe pas
+conn = sqlite3.connect('Base.db')
 c = conn.cursor()
 
+#Creation de table pour y stocker des informations plus tard
+c.execute("""CREATE TABLE Personne (
+    ID int,
+    Name str
+)""")
 
 conn.commit()
 conn.close()
-
-"""
-Dans ce code j'ai crée la BD Base en executant le code: le code 
-crée une connxion a la bd :)"""
